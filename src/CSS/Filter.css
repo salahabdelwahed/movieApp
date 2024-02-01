@@ -1,0 +1,15 @@
+.myClass{
+width: 30%; 
+display: flex;
+justify-content: center;
+margin: 0 auto;
+
+}
+.inpRang{
+margin-right: 15%;
+} 
+.labRang{
+    color: #fff;
+    margin-right: 3%;
+    font-size: 17px;
+}
