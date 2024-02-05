@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard.js";
 import dataMovie from "../BD/data";
 import "../CSS/AllCards.css";
 
-const MovieList = ({ valueTitle, valueRang }) => {
+const MovieList = ({ valueTitle, valueRang, setGetDataFrom }) => {
   // declarations for the states
   const [dataMovieState, setdataMovieState] = useState(dataMovie);
   const [showAddFilm, setShowAddFilm] = useState(false);
@@ -35,6 +35,7 @@ const MovieList = ({ valueTitle, valueRang }) => {
   //function add movie
   const handelAdd = (newFilm) => {
     setdataMovieState([...dataMovieState, newFilm]);
+
     setNewMovie({
       id: Math.random(),
       title: "",
@@ -48,7 +49,7 @@ const MovieList = ({ valueTitle, valueRang }) => {
     });
   };
   //end
-
+  setGetDataFrom(dataMovieState);
   return (
     <>
       <div className="allCards">
@@ -58,7 +59,7 @@ const MovieList = ({ valueTitle, valueRang }) => {
               film.title
                 .toLocaleLowerCase()
                 .includes(valueTitle.toLocaleLowerCase()) &&
-              film.rate > valueRang
+              film.rate >= valueRang
           )
           .map((film) => (
             <MovieCard key={film.id} film={film} />

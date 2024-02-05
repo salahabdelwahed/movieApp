@@ -1,5 +1,6 @@
 import React from "react";
-import "../CSS/MovieCard.css";
+import "../CSS/MovieCard.css"; 
+import { Link } from "react-router-dom";
 
 const MovieCard = ({film}) => {
   return (
@@ -12,12 +13,12 @@ const MovieCard = ({film}) => {
               <p>
                 {film.decr}
               </p>
-              <a href="test" className="button">
+              <Link to={`/${film.id}`} className="button">
                 Watch Now
                 <span className="material-symbols-outlined">
                   arrow_right_alt
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </main>
