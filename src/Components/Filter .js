@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Form, Nav, Navbar } from "react-bootstrap";
 import "../CSS/Filter.css";
 import { Link } from "react-router-dom";
-const Filter = ({ setValueTitle, setValueRang, valueRang }) => {
+const Filter = ({ setValueTitle, setValueRang, setValueGnr }) => {
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -30,7 +30,12 @@ const Filter = ({ setValueTitle, setValueRang, valueRang }) => {
             max="10"
             onChange={(e) => setValueRang(e.target.value)}
           />
-          <label className="labRang"></label>
+          <Form.Control
+          type="text"
+          placeholder="Genre"
+          className=" mr-sm-2 myClass"
+          onChange={(event) => setValueGnr(event.target.value)}
+        />
         </Container>
       </Navbar>
     </>

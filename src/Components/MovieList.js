@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard.js";
 import dataMovie from "../BD/data";
 import "../CSS/AllCards.css";
 
-const MovieList = ({ valueTitle, valueRang, setGetDataFrom }) => {
+const MovieList = ({ valueTitle, valueRang, valueGnr,setGetDataFrom }) => {
   // declarations for the states
   const [dataMovieState, setdataMovieState] = useState(dataMovie);
   const [showAddFilm, setShowAddFilm] = useState(false);
@@ -56,10 +56,10 @@ const MovieList = ({ valueTitle, valueRang, setGetDataFrom }) => {
         {dataMovieState
           .filter(
             (film) =>
-              film.title
+              (film.title
                 .toLocaleLowerCase()
                 .includes(valueTitle.toLocaleLowerCase()) &&
-              film.rate >= valueRang
+              film.rate >= valueRang) && (valueGnr ? film.genre ===valueGnr : true)
           )
           .map((film) => (
             <MovieCard key={film.id} film={film} />
